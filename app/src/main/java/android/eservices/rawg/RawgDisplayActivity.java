@@ -49,17 +49,15 @@ public class RawgDisplayActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             if(position == 0)
                 return new YoutubeVideosFragment();
-            else if(position == 2)
+            else if(position == 1)
                 return new GamesCollectionFragment();
             return new GameSearchFragment();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            if(position == 0) {
-                Log.d("tron",YoutubeVideosFragment.TAB_NAME);
+            if(position == 0)
                 return YoutubeVideosFragment.TAB_NAME;
-            }
             else if(position == 1)
                 return GamesCollectionFragment.TAB_NAME;
             else
