@@ -2,6 +2,7 @@ package android.eservices.rawg.data.di;
 
 import android.content.Context;
 import android.eservices.rawg.data.api.GameService;
+import android.eservices.rawg.data.repository.search.GameSearchDataRepository;
 import android.eservices.rawg.data.repository.search.GameSearchRemoteDataSource;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
@@ -21,6 +22,17 @@ public class FakeDependencyInjection {
 
     private static GameService gameService;
     private static GameSearchRemoteDataSource gameSearchRemoteDataSource;
+    private static GameSearchDataRepository gameSearchDataRepository;
+
+    /**
+     * DataRepository
+     */
+    public static GameSearchDataRepository getGameSearchDataRepository() {
+        if(gameSearchDataRepository == null) {
+            gameSearchDataRepository = new GameSearchDataRepository(getGamesSearchRemoteDataSource());
+        }
+        return gameSearchDataRepository;
+    }
 
     /**
      * RemoteDataSource
