@@ -2,14 +2,28 @@ package android.eservices.rawg.data.api.model;
 
 public class Game {
 
-    private String gameId;
-    private GameInfo gameInfo;
+    private String id;
+    private String name;
+    private String background_image;
+    private String rating;
 
-    public String getGameId() {
-        return gameId;
+    public String getTitle() {
+        return name;
     }
 
-    public GameInfo getGameInfo() {
-        return gameInfo;
+    public String getImageLinks() {
+        return background_image;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getGameId() {
+        return id;
+    }
+
+    public String toString() {
+        return String.format("id : %s - title : %s - link : %s - rating : %s", getGameId(), getTitle(), getImageLinks(), getRating());
     }
 }
