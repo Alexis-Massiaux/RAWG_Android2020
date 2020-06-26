@@ -9,7 +9,7 @@ public interface GameSearchContract {
 
     interface Presenter {
 
-        void searchGame(String keywords);
+        void searchGames(String keywords);
 
         void attachView(View view);
 

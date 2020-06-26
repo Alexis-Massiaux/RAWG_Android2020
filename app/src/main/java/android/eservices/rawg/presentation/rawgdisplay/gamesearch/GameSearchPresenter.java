@@ -26,7 +26,7 @@ public class GameSearchPresenter implements GameSearchContract.Presenter {
     }
 
     @Override
-    public void searchGame(String keywords) {
+    public void searchGames(String keywords) {
         this.cd.add(this.gameSearchDataRepository.getGames(keywords).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<GameSearchResponse>() {
