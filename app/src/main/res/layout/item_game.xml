@@ -14,7 +14,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
 
         <ImageView
             android:id="@+id/game_imageview"
@@ -33,6 +34,7 @@
             android:layout_marginLeft="10dp"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/colorText"
             app:layout_constraintTop_toBottomOf="@id/game_imageview"
             app:layout_constraintLeft_toLeftOf="@id/game_imageview"
             app:layout_constraintVertical_chainStyle="packed"
@@ -44,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:textSize="15sp"
+            android:textColor="@color/colorText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/game_imageview"
             tools:text="@string/game_default_note" />
