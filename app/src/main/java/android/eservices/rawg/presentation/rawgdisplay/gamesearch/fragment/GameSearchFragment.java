@@ -11,9 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -54,6 +53,7 @@ public class GameSearchFragment extends Fragment implements GameActionInterface,
         super.onActivityCreated(savedInstanceState);
         setupSearchView();
         setupRecyclerView();
+
         progressBar = rootView.findViewById(R.id.progress_bar);
 
         this.gameSearchPresenter = new GameSearchPresenter();
@@ -118,11 +118,11 @@ public class GameSearchFragment extends Fragment implements GameActionInterface,
     }
 
     @Override
-    public void addToCollection(String gameId, boolean isInside) {
-        if(isInside) {
-            //set inside collection
-        }else{
-            //remove from the collection
-        }
+    public void addToCollection(String gameId) {
+        //bookSearchPresenter.addBookToFavorite(bookId);
+        String message = "Ajout du jeux : "+gameId+" à la collection";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(getContext(), message, duration);
+        toast.show();
     }
 }
