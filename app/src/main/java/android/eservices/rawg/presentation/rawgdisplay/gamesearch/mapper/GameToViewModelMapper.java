@@ -12,9 +12,9 @@ public class GameToViewModelMapper {
         GameItemViewModel gameItemViewModel = new GameItemViewModel();
 
         gameItemViewModel.setGameId(game.getGameId());
-        gameItemViewModel.setGameRating(game.getGameInfo().getRating());
-        gameItemViewModel.setGameTitle(game.getGameInfo().getTitle());
-        gameItemViewModel.setIconUrl(game.getGameInfo().getImageLinks());
+        gameItemViewModel.setGameRating(game.getRating());
+        gameItemViewModel.setGameTitle(game.getTitle());
+        gameItemViewModel.setIconUrl(game.getImageLinks());
 
         return gameItemViewModel;
     }
