@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RAWG - Youtube Monitor</string>
+    <string name="game_default_title">My game title</string>
+    <string name="game_default_note">My game note</string>
 </resources>
