@@ -4,6 +4,9 @@ import android.content.Context;
 import android.eservices.rawg.data.api.GameService;
 import android.eservices.rawg.data.repository.search.GameSearchDataRepository;
 import android.eservices.rawg.data.repository.search.GameSearchRemoteDataSource;
+import android.eservices.rawg.db.GameDatabase;
+
+import androidx.room.Room;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.Gson;
@@ -21,6 +24,7 @@ public class FakeDependencyInjection {
     private static Context applicationContext;
 
     private static GameService gameService;
+    private static GameDatabase gameDatabase;
     private static GameSearchRemoteDataSource gameSearchRemoteDataSource;
     private static GameSearchDataRepository gameSearchDataRepository;
 
@@ -82,5 +86,15 @@ public class FakeDependencyInjection {
 
     private static void setContext(Context context) {
         applicationContext = context;
+    }
+
+    /**
+     * Database
+     */
+    public static GameDatabase getGameDatabase() {
+        if(gameDatabase == null) {
+            gameDatabase = Room.databaseBuilder(applicationContext.getApplicationContext(), GameDatabase.class,"game-database").build();
+        }
+        return gameDatabase;
     }
 }
