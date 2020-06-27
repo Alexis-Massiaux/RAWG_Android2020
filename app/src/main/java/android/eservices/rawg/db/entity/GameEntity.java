@@ -10,7 +10,7 @@ public class GameEntity {
 
     @NonNull
     @PrimaryKey
-    public int id;
+    public String id;
 
     @ColumnInfo(name = "image_link")
     public String imageLink;

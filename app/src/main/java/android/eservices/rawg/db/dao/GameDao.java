@@ -19,7 +19,7 @@ public interface GameDao {
     Flowable<List<GameEntity>> getCollection();
 
     @Query("select * from games where id = :id")
-    GameEntity findById(int id);
+    GameEntity findById(String id);
 
     @Query("select * from games where title = :title")
     GameEntity findByTitle(String title);
