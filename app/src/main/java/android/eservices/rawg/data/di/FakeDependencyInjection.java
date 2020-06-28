@@ -105,7 +105,7 @@ public class FakeDependencyInjection {
         return gson;
     }
 
-    private static void setContext(Context context) {
+    public static void setContext(Context context) {
         applicationContext = context;
     }
 

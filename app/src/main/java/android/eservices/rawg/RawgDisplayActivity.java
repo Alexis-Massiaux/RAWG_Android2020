@@ -1,17 +1,17 @@
 package android.eservices.rawg;
 
+import android.eservices.rawg.data.di.FakeDependencyInjection;
+import android.eservices.rawg.presentation.rawgdisplay.gamescollection.fragment.GamesCollectionFragment;
+import android.eservices.rawg.presentation.rawgdisplay.gamesearch.fragment.GameSearchFragment;
+import android.eservices.rawg.presentation.rawgdisplay.youtubevideos.fragment.YoutubeVideosFragment;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.eservices.rawg.presentation.rawgdisplay.gamescollection.fragment.GamesCollectionFragment;
-import android.eservices.rawg.presentation.rawgdisplay.gamesearch.fragment.GameSearchFragment;
-import android.eservices.rawg.presentation.rawgdisplay.youtubevideos.fragment.YoutubeVideosFragment;
-import android.os.Bundle;
-import android.util.Log;
 
 public class RawgDisplayActivity extends AppCompatActivity {
 
@@ -22,6 +22,7 @@ public class RawgDisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FakeDependencyInjection.setContext(this);
 
         setupViewPagerAndTabs();
     }
