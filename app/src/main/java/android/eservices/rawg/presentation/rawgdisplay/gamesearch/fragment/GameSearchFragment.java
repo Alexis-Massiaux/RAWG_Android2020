@@ -120,11 +120,15 @@ public class GameSearchFragment extends Fragment implements GameActionInterface,
     }
 
     @Override
-    public void addToCollection(String gameId) {
-        //bookSearchPresenter.addBookToFavorite(bookId);
+    public void onGameAddedToCollection(String gameId) {
         String message = "Ajout du jeux : "+gameId+" à la collection";
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(getContext(), message, duration);
         toast.show();
+    }
+
+    @Override
+    public void addToCollection(String gameId) {
+        gameSearchPresenter.addGameToCollection(gameId);
     }
 }

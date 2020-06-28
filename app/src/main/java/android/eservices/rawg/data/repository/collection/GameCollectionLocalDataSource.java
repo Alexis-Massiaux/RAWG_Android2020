@@ -5,6 +5,7 @@ import android.eservices.rawg.db.entity.GameEntity;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Flowable;
 
 public class GameCollectionLocalDataSource {
@@ -21,5 +22,9 @@ public class GameCollectionLocalDataSource {
 
     public GameEntity findById(String id) {
         return this.gameDatabase.gameDao().findById(id);
+    }
+
+    public Completable addGameToCollection(GameEntity gameEntity) {
+        return gameDatabase.gameDao().addGame(gameEntity);
     }
 }

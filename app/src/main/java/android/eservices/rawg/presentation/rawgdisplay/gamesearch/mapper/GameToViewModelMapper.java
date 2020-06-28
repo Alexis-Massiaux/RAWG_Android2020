@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GameToViewModelMapper {
 
-    private GameItemViewModel map(Game game) {
+    public GameItemViewModel map(Game game) {
         GameItemViewModel gameItemViewModel = new GameItemViewModel();
 
         gameItemViewModel.setGameId(game.getGameId());

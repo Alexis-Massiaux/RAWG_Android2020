@@ -1,7 +1,6 @@
 package android.eservices.rawg.presentation.rawgdisplay.gamesearch;
 
 import android.eservices.rawg.presentation.rawgdisplay.gamesearch.adapter.GameItemViewModel;
-import android.view.View;
 
 import java.util.List;
 
@@ -22,5 +21,7 @@ public interface GameSearchContract {
 
     interface View {
         void displayGames(List<GameItemViewModel> games);
+
+        void onGameAddedToCollection(String gameId);
     }
 }
