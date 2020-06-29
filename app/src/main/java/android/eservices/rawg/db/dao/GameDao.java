@@ -13,6 +13,9 @@ import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
 
+/**
+ * Available actions to be done in the database
+ */
 @Dao
 public interface GameDao {
 

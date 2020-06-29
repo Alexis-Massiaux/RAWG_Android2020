@@ -5,6 +5,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * The data of a game saved in the database
+ */
 @Entity(tableName="games")
 public class GameEntity {
 
