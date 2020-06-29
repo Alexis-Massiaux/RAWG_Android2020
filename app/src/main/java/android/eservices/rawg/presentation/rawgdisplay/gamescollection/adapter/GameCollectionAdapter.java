@@ -18,6 +18,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Fills the layout fragment_game_collection with data and actions
+ */
 public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAdapter.GameViewHolder>{
 
     public static class GameViewHolder extends RecyclerView.ViewHolder {
@@ -42,6 +45,9 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
             setupListeners();
         }
 
+        /**
+         * Sets the action of deleting a game after a click on the remove button
+         */
         private void setupListeners() {
             gameAddButton.setOnClickListener(new View.OnClickListener(){
 
@@ -52,6 +58,10 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
             });
         }
 
+        /**
+         * Fills the fields of the layout fragment_game_collection
+         * @param gameItemViewModel - the data
+         */
         void bind(GameCollectionViewModel gameItemViewModel) {
             this.gameCollectionViewModel = gameItemViewModel;
             titleTextView.setText(gameItemViewModel.getGameTitle());
@@ -75,6 +85,10 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
         this.gameActionInterface = gameActionInterface;
     }
 
+    /**
+     * Displays all the Game send back by the database
+     * @param gameCollectionViewModelList
+     */
     public void bindViewModels(List<GameCollectionViewModel> gameCollectionViewModelList) {
         this.gameCollectionViewModelList.clear();
         this.gameCollectionViewModelList.addAll(gameCollectionViewModelList);

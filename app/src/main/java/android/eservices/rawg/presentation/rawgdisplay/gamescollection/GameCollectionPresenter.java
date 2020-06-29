@@ -12,6 +12,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.ResourceSubscriber;
 
+/**
+ * Presenter part of the save Game collection
+ */
 public class GameCollectionPresenter implements GameCollectionContract.Presenter {
 
     private GameCollectionContract.View view;

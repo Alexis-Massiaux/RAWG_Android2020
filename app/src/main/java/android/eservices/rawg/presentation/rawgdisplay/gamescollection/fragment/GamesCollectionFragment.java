@@ -19,6 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/**
+ * The fragment of the collection in charge of displaying the games saved in local database
+ */
 public class GamesCollectionFragment extends Fragment implements GameCollectionActionInterface, GameCollectionContract.View{
 
     public static final String TAB_NAME = "GamesCollection";

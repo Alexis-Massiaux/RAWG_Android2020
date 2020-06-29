@@ -1,5 +1,8 @@
 package android.eservices.rawg.presentation.rawgdisplay.gamescollection.adapter;
 
+/**
+ * The version of a model of a Game used to be displayed to the user in the collection view
+ */
 public class GameCollectionViewModel {
 
     private String gameId;
