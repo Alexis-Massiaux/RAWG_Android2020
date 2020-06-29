@@ -21,6 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/**
+ * The fragment that displays the Youtube videos related to the collection
+ */
 public class YoutubeVideosFragment extends Fragment implements GameYoutubeActionInterface, GameYoutubeContract.View {
 
     public static final String TAB_NAME = "YoutubeVideos";
@@ -47,6 +50,9 @@ public class YoutubeVideosFragment extends Fragment implements GameYoutubeAction
         return rootView;
     }
 
+    /**
+     * Instanciation of the RecyclerView
+     */
     private void setupRecyclerView() {
         recyclerView = rootView.findViewById(R.id.game_youtube_recyclerview);
         gameYoutubeAdapter = new GameYoutubeAdapter(this);

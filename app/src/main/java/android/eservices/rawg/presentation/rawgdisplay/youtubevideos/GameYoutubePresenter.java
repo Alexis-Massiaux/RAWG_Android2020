@@ -13,6 +13,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Presenter part of Youtube videos in charge of retrieving the videos according to the collection
+ */
 public class GameYoutubePresenter implements GameYoutubeContract.Presenter{
 
     private CompositeDisposable cd;

@@ -13,6 +13,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+/**
+ * Main activity of the application
+ */
 public class RawgDisplayActivity extends AppCompatActivity {
 
     //Slide between fragments

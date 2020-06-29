@@ -16,6 +16,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Fills the layout fragment_game_youtube with data and actions
+ */
 public class GameYoutubeAdapter extends RecyclerView.Adapter<GameYoutubeAdapter.GameYoutubeViewHolder> {
 
     public static class GameYoutubeViewHolder extends RecyclerView.ViewHolder {
@@ -42,6 +45,9 @@ public class GameYoutubeAdapter extends RecyclerView.Adapter<GameYoutubeAdapter.
             setupListeners();
         }
 
+        /**
+         * Sets the action of opening the video on Youtube after a click on the icon
+         */
         private void setupListeners() {
             videoImageView.setOnClickListener(new View.OnClickListener(){
 
@@ -52,6 +58,10 @@ public class GameYoutubeAdapter extends RecyclerView.Adapter<GameYoutubeAdapter.
             });
         }
 
+        /**
+         * Fills the fields of the layout fragment_game_youtube
+         * @param gameYoutubeViewModel - the data
+         */
         void bind(GameYoutubeViewModel gameYoutubeViewModel) {
             this.gameYoutubeViewModel = gameYoutubeViewModel;
             titleTextView.setText(gameYoutubeViewModel.getVideoTitle());
@@ -74,6 +84,10 @@ public class GameYoutubeAdapter extends RecyclerView.Adapter<GameYoutubeAdapter.
         this.gameYoutubeActionInterface = gameYoutubeActionInterface;
     }
 
+    /**
+     * Displays all the Youtube video related to the collection
+     * @param gameYoutubeViewModels
+     */
     public void bindViewModels(List<GameYoutubeViewModel> gameYoutubeViewModels) {
         this.gameYoutubeViewModels.clear();
         this.gameYoutubeViewModels.addAll(gameYoutubeViewModels);

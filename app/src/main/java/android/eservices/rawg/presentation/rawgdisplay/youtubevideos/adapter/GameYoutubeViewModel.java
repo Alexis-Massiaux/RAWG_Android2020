@@ -1,5 +1,8 @@
 package android.eservices.rawg.presentation.rawgdisplay.youtubevideos.adapter;
 
+/**
+ * The version of a model of a Youtube video used to be displayed to the user
+ */
 public class GameYoutubeViewModel {
 
     private String videoId;
