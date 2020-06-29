@@ -6,8 +6,16 @@ import android.eservices.rawg.presentation.rawgdisplay.gamesearch.adapter.GameIt
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Converts objects to a GameItemViewModel version
+ */
 public class GameToViewModelMapper {
 
+    /**
+     * Allows you to convert a model into its view model version
+     * @param game - a Game model
+     * @return - a GameItemViewModel
+     */
     public GameItemViewModel map(Game game) {
         GameItemViewModel gameItemViewModel = new GameItemViewModel();
 
@@ -19,6 +27,11 @@ public class GameToViewModelMapper {
         return gameItemViewModel;
     }
 
+    /**
+     * Allows you to convert a list of models into their view model version
+     * @param games - the list of Game
+     * @return - a list of GameItemViewModel
+     */
     public List<GameItemViewModel> map(List<Game> games) {
         List<GameItemViewModel> gameItemViewModels = new ArrayList<>();
 

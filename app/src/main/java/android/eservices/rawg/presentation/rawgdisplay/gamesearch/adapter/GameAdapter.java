@@ -17,6 +17,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Fills the layout fragment_game_search with data and actions
+ */
 public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder> {
 
     public static class GameViewHolder extends RecyclerView.ViewHolder {
@@ -41,6 +44,9 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
             setupListeners();
         }
 
+        /**
+         * Sets the action of adding a game after a click on the add button
+         */
         private void setupListeners() {
             gameAddButton.setOnClickListener(new View.OnClickListener(){
 
@@ -51,6 +57,10 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
             });
         }
 
+        /**
+         * Fills the fields of the layout fragment_game_search
+         * @param gameItemViewModel - the data
+         */
         void bind(GameItemViewModel gameItemViewModel) {
             this.gameItemViewModel = gameItemViewModel;
             titleTextView.setText(gameItemViewModel.getGameTitle());
@@ -73,6 +83,10 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
         this.gameActionInterface = gameActionInterface;
     }
 
+    /**
+     * Displays all the Game send back by the search
+     * @param gameItemViewModelList
+     */
     public void bindViewModels(List<GameItemViewModel> gameItemViewModelList) {
         this.gameItemViewModelList.clear();
         this.gameItemViewModelList.addAll(gameItemViewModelList);

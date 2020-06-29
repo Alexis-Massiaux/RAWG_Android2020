@@ -12,6 +12,9 @@ import io.reactivex.observers.DisposableCompletableObserver;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Presenter part of the search for games in charge of retrieving a list of games according to the title
+ */
 public class GameSearchPresenter implements GameSearchContract.Presenter {
 
     private CompositeDisposable cd;

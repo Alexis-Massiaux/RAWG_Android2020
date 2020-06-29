@@ -24,9 +24,13 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * The fragment in charge for retrieving a list of games based on a part of the game title
+ */
 public class GameSearchFragment extends Fragment implements GameActionInterface, GameSearchContract.View {
 
     public static final String TAB_NAME = "GameSearch";
+
     private View rootView;
     private SearchView searchView;
     private RecyclerView recyclerView;
@@ -63,6 +67,9 @@ public class GameSearchFragment extends Fragment implements GameActionInterface,
 
     }
 
+    /**
+     * Launches punctually a search with the value entered in the SearchView
+     */
     private void setupSearchView() {
         searchView = rootView.findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

@@ -1,5 +1,8 @@
 package android.eservices.rawg.presentation.rawgdisplay.gamesearch.adapter;
 
+/**
+ * The version of a model of a Game used to be displayed to the user
+ */
 public class GameItemViewModel {
 
     private String gameId;
