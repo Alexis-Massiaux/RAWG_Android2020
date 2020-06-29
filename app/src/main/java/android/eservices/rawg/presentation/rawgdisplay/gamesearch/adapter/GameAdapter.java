@@ -55,7 +55,6 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
             this.gameItemViewModel = gameItemViewModel;
             titleTextView.setText(gameItemViewModel.getGameTitle());
             ratingTextView.setText(gameItemViewModel.getGameRating());
-            //favoriteSwitch.setChecked(bookItemViewModel.isFavorite());
             Glide.with(v)
                     .load(gameItemViewModel.getIconUrl())
                     .centerCrop()

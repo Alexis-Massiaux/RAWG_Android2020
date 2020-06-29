@@ -7,6 +7,7 @@ import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 public class GameCollectionLocalDataSource {
 
@@ -18,6 +19,10 @@ public class GameCollectionLocalDataSource {
 
     public Flowable<List<GameEntity>> getCollection() {
         return this.gameDatabase.gameDao().getCollection();
+    }
+
+    public Single<List<String>> getCollectionId() {
+        return this.gameDatabase.gameDao().getCollectionId();
     }
 
     public GameEntity findById(String id) {

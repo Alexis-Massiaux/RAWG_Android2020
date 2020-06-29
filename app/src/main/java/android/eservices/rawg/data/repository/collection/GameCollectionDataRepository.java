@@ -1,6 +1,7 @@
 package android.eservices.rawg.data.repository.collection;
 
 import android.eservices.rawg.data.api.model.Game;
+import android.eservices.rawg.data.api.model.YoutubeVideoSearchResponse;
 import android.eservices.rawg.data.repository.collection.mapper.GameToEntityModelMapper;
 import android.eservices.rawg.db.entity.GameEntity;
 
@@ -10,6 +11,7 @@ import io.reactivex.Completable;
 import io.reactivex.CompletableSource;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
+import io.reactivex.SingleSource;
 import io.reactivex.functions.Function;
 
 public class GameCollectionDataRepository {
@@ -44,6 +46,28 @@ public class GameCollectionDataRepository {
                     @Override
                     public CompletableSource apply(GameEntity gameEntity) throws Exception {
                         return gameCollectionLocalDataSource.addGameToCollection(gameEntity);
+                    }
+                });
+    }
+
+    public Completable removeGameFromCollection(String id) {
+        return gameCollectionLocalDataSource.removeGameFromCollection(id);
+    }
+
+    public Single<List<YoutubeVideoSearchResponse>> getYoutubeVideosFromCollection() {
+        return gameCollectionLocalDataSource.getCollectionId()
+                .flatMap(new Function<List<String>, SingleSource<List<YoutubeVideoSearchResponse>>>() {
+
+                    @Override
+                    public SingleSource<List<YoutubeVideoSearchResponse>> apply(List<String> ids) throws Exception {
+                        return Flowable.fromIterable(ids)
+                                .flatMapSingle(new Function<String, SingleSource<YoutubeVideoSearchResponse>>() {
+
+                                    @Override
+                                    public SingleSource<YoutubeVideoSearchResponse> apply(String id) throws Exception {
+                                        return gameCollectionRemoteDataSource.getYoutubeVideos(id);
+                                    }
+                                }).toList();
                     }
                 });
     }
