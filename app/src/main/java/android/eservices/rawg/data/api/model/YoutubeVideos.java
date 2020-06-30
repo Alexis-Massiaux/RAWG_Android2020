@@ -2,6 +2,9 @@ package android.eservices.rawg.data.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Model of a Youtube video retrieved by the API
+ */
 public class YoutubeVideos {
 
     @SerializedName("external_id")

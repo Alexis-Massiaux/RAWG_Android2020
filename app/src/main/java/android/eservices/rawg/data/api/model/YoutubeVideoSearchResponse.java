@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * List of Youtube videos retrieved by the API
+ */
 public class YoutubeVideoSearchResponse {
 
     @SerializedName("results")

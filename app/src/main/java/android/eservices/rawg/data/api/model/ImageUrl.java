@@ -2,6 +2,9 @@ package android.eservices.rawg.data.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * URL of an image retrived by the API
+ */
 public class ImageUrl {
 
     @SerializedName("url")

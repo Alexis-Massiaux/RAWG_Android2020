@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * List of the games retrieved by the API
+ */
 public class GameSearchResponse {
 
     @SerializedName("results")
