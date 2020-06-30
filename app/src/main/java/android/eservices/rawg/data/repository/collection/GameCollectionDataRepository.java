@@ -14,6 +14,9 @@ import io.reactivex.Single;
 import io.reactivex.SingleSource;
 import io.reactivex.functions.Function;
 
+/**
+ * Implementation of actions to retrieve basic or query data
+ */
 public class GameCollectionDataRepository {
 
     private GameToEntityModelMapper gameToEntityModelMapper;
@@ -26,14 +29,28 @@ public class GameCollectionDataRepository {
         this.gameToEntityModelMapper = new GameToEntityModelMapper();
     }
 
+    /**
+     * Finds the detail of a game within the api according to its id
+     * @param id - game id
+     * @return - a game
+     */
     public Single<Game> getGame(String id) {
         return gameCollectionRemoteDataSource.getGame(id);
     }
 
+    /**
+     * Finds all games within the database
+     * @return - a list of games
+     */
     public Flowable<List<GameEntity>> getGamesInDatabase() {
         return gameCollectionLocalDataSource.getCollection();
     }
 
+    /**
+     * Addition of a game in the database
+     * @param id - game id
+     * @return - the result of the action
+     */
     public Completable addGameToCollection(String id) {
         return gameCollectionRemoteDataSource.getGame(id)
                 .map(new Function<Game, GameEntity>() {
@@ -50,10 +67,19 @@ public class GameCollectionDataRepository {
                 });
     }
 
+    /**
+     * Deletion of a game in the database
+     * @param id - game id
+     * @return - the result of the action
+     */
     public Completable removeGameFromCollection(String id) {
         return gameCollectionLocalDataSource.removeGameFromCollection(id);
     }
 
+    /**
+     * Finds the Youtube video within the api and related to the games into the database
+     * @return - a list of Youtube videos
+     */
     public Single<List<YoutubeVideoSearchResponse>> getYoutubeVideosFromCollection() {
         return gameCollectionLocalDataSource.getCollectionId()
                 .flatMap(new Function<List<String>, SingleSource<List<YoutubeVideoSearchResponse>>>() {
