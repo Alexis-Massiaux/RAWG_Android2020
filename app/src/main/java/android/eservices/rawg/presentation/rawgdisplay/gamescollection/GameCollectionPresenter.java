@@ -9,6 +9,7 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableCompletableObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.ResourceSubscriber;
 
@@ -58,7 +59,21 @@ public class GameCollectionPresenter implements GameCollectionContract.Presenter
 
     @Override
     public void onRemoveGame(String id) {
-        //call repository and remove (function to create)
+        compositeDisposable.add(dataRepository.removeGameFromCollection(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableCompletableObserver() {
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("Game removed");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+                }));
     }
 
     @Override

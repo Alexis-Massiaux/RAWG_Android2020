@@ -43,7 +43,7 @@ public class GamesCollectionFragment extends Fragment implements GameCollectionA
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreateView(inflater, container, savedInstanceState);
         rootView = inflater.inflate(R.layout.fragment_game_collection, container, false);
         return rootView;
     }
@@ -73,12 +73,7 @@ public class GamesCollectionFragment extends Fragment implements GameCollectionA
 
     @Override
     public void onRemoveGame(String id) {
-
-    }
-
-    @Override
-    public void onGameRemoved() {
-
+        gameCollectionPresenter.onRemoveGame(id);
     }
 
     @Override

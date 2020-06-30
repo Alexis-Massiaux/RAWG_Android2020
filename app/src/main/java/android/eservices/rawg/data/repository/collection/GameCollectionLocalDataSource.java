@@ -32,4 +32,8 @@ public class GameCollectionLocalDataSource {
     public Completable addGameToCollection(GameEntity gameEntity) {
         return gameDatabase.gameDao().addGame(gameEntity);
     }
+
+    public Completable removeGameFromCollection(String id) {
+        return this.gameDatabase.gameDao().deleteGameFromCollection(id);
+    }
 }

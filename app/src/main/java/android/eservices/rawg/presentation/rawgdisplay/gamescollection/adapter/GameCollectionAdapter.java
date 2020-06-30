@@ -1,7 +1,6 @@
 package android.eservices.rawg.presentation.rawgdisplay.gamescollection.adapter;
 
 import android.eservices.rawg.R;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,7 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
         private ImageView backgroundImageView;
         private TextView titleTextView;
         private TextView ratingTextView;
-        private ImageButton gameAddButton;
+        private ImageButton gameDeleteButton;
         private View v;
 
         private GameCollectionActionInterface gameCollectionActionInterface;
@@ -37,10 +36,10 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
         public GameViewHolder(View v, final GameCollectionActionInterface gameActionInterface) {
             super(v);
             this.v = v;
-            backgroundImageView = v.findViewById(R.id.game_imageview);
-            titleTextView = v.findViewById(R.id.game_title_textview);
-            ratingTextView = v.findViewById(R.id.game_rating_textview);
-            gameAddButton = v.findViewById(R.id.game_add_button);
+            backgroundImageView = v.findViewById(R.id.collection_imageview);
+            titleTextView = v.findViewById(R.id.collection_title);
+            ratingTextView = v.findViewById(R.id.collection_rating);
+            gameDeleteButton = v.findViewById(R.id.collection_delete_button);
             this.gameCollectionActionInterface = gameActionInterface;
             setupListeners();
         }
@@ -49,7 +48,7 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
          * Sets the action of deleting a game after a click on the remove button
          */
         private void setupListeners() {
-            gameAddButton.setOnClickListener(new View.OnClickListener(){
+            gameDeleteButton.setOnClickListener(new View.OnClickListener(){
 
                 @Override
                 public void onClick(View view) {
@@ -66,7 +65,6 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
             this.gameCollectionViewModel = gameItemViewModel;
             titleTextView.setText(gameItemViewModel.getGameTitle());
             ratingTextView.setText(gameItemViewModel.getGameRating());
-            //favoriteSwitch.setChecked(bookItemViewModel.isFavorite());
             Glide.with(v)
                     .load(gameItemViewModel.getIconUrl())
                     .centerCrop()
@@ -98,7 +96,7 @@ public class GameCollectionAdapter extends RecyclerView.Adapter<GameCollectionAd
     @NonNull
     @Override
     public GameCollectionAdapter.GameViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_game, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_game_collection, parent, false);
         GameCollectionAdapter.GameViewHolder gameViewHolder = new GameCollectionAdapter.GameViewHolder(v, gameActionInterface);
         return gameViewHolder;
     }

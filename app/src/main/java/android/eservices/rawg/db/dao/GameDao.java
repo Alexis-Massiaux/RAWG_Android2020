@@ -3,7 +3,6 @@ package android.eservices.rawg.db.dao;
 import android.eservices.rawg.db.entity.GameEntity;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -34,6 +33,6 @@ public interface GameDao {
     @Insert
     Completable addGame(GameEntity game);
 
-    @Delete
-    void deleteGame(GameEntity gameEntity);
+    @Query("delete from games where id = :id")
+    Completable deleteGameFromCollection(String id);
 }
